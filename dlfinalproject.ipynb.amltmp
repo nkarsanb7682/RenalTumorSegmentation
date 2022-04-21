@@ -16,34 +16,11 @@
     {
       "cell_type": "code",
       "source": [
-        "from models.transunet import transunet\n",
+        "from models import transunet\n",
         "from data_processing.data_parser import DataReader\n",
         "from experiments.config import get_transunet "
       ],
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stderr",
-          "text": "/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/utils/ensure_tf_install.py:53: UserWarning: Tensorflow Addons supports using Python ops for all Tensorflow versions above or equal to 2.6.0 and strictly below 2.9.0 (nightly versions are not supported). \n The versions of TensorFlow you are currently using is 2.2.0 and is not supported. \nSome things might work, some things might not.\nIf you were to encounter a bug, do not file an issue.\nIf you want to make sure you're using a tested and supported configuration, either change the TensorFlow version or the TensorFlow Addons's version. \nYou can find the compatibility matrix in TensorFlow Addon's readme:\nhttps://github.com/tensorflow/addons\n  warnings.warn(\n"
-        },
-        {
-          "output_type": "error",
-          "ename": "ImportError",
-          "evalue": "cannot import name 'keras_tensor' from 'tensorflow.python.keras.engine' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow/python/keras/engine/__init__.py)",
-          "traceback": [
-            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-            "\u001b[0;31mImportError\u001b[0m                               Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-1-342fe19bfd29>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtransunet\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtransunet\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mdata_processing\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdata_parser\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mDataReader\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mexperiments\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mconfig\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mget_transunet\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/mnt/batch/tasks/shared/LS_root/mounts/clusters/neka48361/code/Users/neka4836/RenalTumorSegmentation/models/transunet.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mencoder_layers\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mencoder_layers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdecoder_layers\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mdecoder_layers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mresnet_v2\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mResNetV2\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtfa\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mmatplotlib\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpyplot\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/mnt/batch/tasks/shared/LS_root/mounts/clusters/neka48361/code/Users/neka4836/RenalTumorSegmentation/models/encoder_layers.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtf\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtfa\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mtfk\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mtf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkeras\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mtfkl\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mtfk\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlayers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/__init__.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     20\u001b[0m \u001b[0;31m# Local project imports\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 21\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mactivations\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     22\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mcallbacks\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     23\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mimage\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/activations/__init__.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;34m\"\"\"Additional activation functions.\"\"\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 17\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mactivations\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgelu\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mgelu\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     18\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mactivations\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhardshrink\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mhardshrink\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mactivations\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlisht\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mlisht\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/activations/gelu.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     17\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mwarnings\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 19\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mutils\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtypes\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mTensorLike\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     20\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     21\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/utils/types.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     24\u001b[0m     \u001b[0;32mfrom\u001b[0m \u001b[0mkeras\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mkeras_tensor\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     25\u001b[0m \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 26\u001b[0;31m     \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpython\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkeras\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mkeras_tensor\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     27\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     28\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mImportError\u001b[0m: cannot import name 'keras_tensor' from 'tensorflow.python.keras.engine' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow/python/keras/engine/__init__.py)"
-          ]
-        }
-      ],
+      "outputs": [],
       "execution_count": 1,
       "metadata": {
         "jupyter": {
@@ -56,40 +33,27 @@
           }
         },
         "gather": {
-          "logged": 1650387533877
+          "logged": 1650581228466
         }
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "from models.transunet import transunet"
+        "## Train Model \n",
+        "config = get_transunet()\n",
+        "transunet = transunet.TransUnet(config)\n",
+        "transunet.compile()\n",
+        "#history = transunet.train_validate(training_dataset, validation_dataset, save_path, epochs=150)"
       ],
       "outputs": [
         {
           "output_type": "stream",
-          "name": "stderr",
-          "text": "/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/utils/ensure_tf_install.py:53: UserWarning: Tensorflow Addons supports using Python ops for all Tensorflow versions above or equal to 2.6.0 and strictly below 2.9.0 (nightly versions are not supported). \n The versions of TensorFlow you are currently using is 2.2.0 and is not supported. \nSome things might work, some things might not.\nIf you were to encounter a bug, do not file an issue.\nIf you want to make sure you're using a tested and supported configuration, either change the TensorFlow version or the TensorFlow Addons's version. \nYou can find the compatibility matrix in TensorFlow Addon's readme:\nhttps://github.com/tensorflow/addons\n  warnings.warn(\n"
-        },
-        {
-          "output_type": "error",
-          "ename": "ImportError",
-          "evalue": "cannot import name 'keras_tensor' from 'tensorflow.python.keras.engine' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow/python/keras/engine/__init__.py)",
-          "traceback": [
-            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-            "\u001b[0;31mImportError\u001b[0m                               Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-5-3517040cbb0c>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtransunet\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtransunet\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
-            "\u001b[0;32m/mnt/batch/tasks/shared/LS_root/mounts/clusters/neka48361/code/Users/neka4836/RenalTumorSegmentation/models/transunet.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mencoder_layers\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mencoder_layers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdecoder_layers\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mdecoder_layers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mmodels\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mresnet_v2\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mResNetV2\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtfa\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mmatplotlib\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpyplot\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/mnt/batch/tasks/shared/LS_root/mounts/clusters/neka48361/code/Users/neka4836/RenalTumorSegmentation/models/encoder_layers.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtf\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtfa\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mtfk\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mtf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkeras\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mtfkl\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mtfk\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlayers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/__init__.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     20\u001b[0m \u001b[0;31m# Local project imports\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 21\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mactivations\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     22\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mcallbacks\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     23\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mimage\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/activations/__init__.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;34m\"\"\"Additional activation functions.\"\"\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 17\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mactivations\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgelu\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mgelu\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     18\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mactivations\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhardshrink\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mhardshrink\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mactivations\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlisht\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mlisht\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/activations/gelu.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     17\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mwarnings\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 19\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow_addons\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mutils\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtypes\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mTensorLike\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     20\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     21\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow_addons/utils/types.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     24\u001b[0m     \u001b[0;32mfrom\u001b[0m \u001b[0mkeras\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mkeras_tensor\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     25\u001b[0m \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 26\u001b[0;31m     \u001b[0;32mfrom\u001b[0m \u001b[0mtensorflow\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpython\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkeras\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mkeras_tensor\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     27\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     28\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mImportError\u001b[0m: cannot import name 'keras_tensor' from 'tensorflow.python.keras.engine' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/tensorflow/python/keras/engine/__init__.py)"
-          ]
+          "name": "stdout",
+          "text": "Downloading data from https://storage.googleapis.com/vit_models/imagenet21k/R50+ViT-B_16.npz\n461217792/461217452 [==============================] - 3s 0us/step\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\n461225984/461217452 [==============================] - 3s 0us/step\n"
         }
       ],
-      "execution_count": 5,
+      "execution_count": 4,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -101,7 +65,7 @@
           }
         },
         "gather": {
-          "logged": 1650387596864
+          "logged": 1650581496796
         }
       }
     },
