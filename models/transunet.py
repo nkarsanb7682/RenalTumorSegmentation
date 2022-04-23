@@ -12,7 +12,7 @@ tfkl = tfk.layers
 tfm = tf.math
 tfkc = tfk.callbacks
 
-N_CLASSES = 9
+N_CLASSES = 2
 MODELS_URL = 'https://storage.googleapis.com/vit_models/imagenet21k/'
 TRAINING_SAMPLES = 2211
 
@@ -212,7 +212,9 @@ class TransUnet():
         pred_tensor = tf.nn.softmax(y_pred)
         loss = 0.0
         for c in range(N_CLASSES):
-            loss += TransUnet.dice_per_class(y_true[:, :, :, c], pred_tensor[:, :, :, c])
+            print("*****************", y_true.shape)
+            print("&&&&&&&&&&&&&&&&&&", pred_tensor.shape)
+            loss += TransUnet.dice_per_class(y_true[:, :, c], pred_tensor[:, :, c])
         return loss/N_CLASSES
 
     @tf.function
